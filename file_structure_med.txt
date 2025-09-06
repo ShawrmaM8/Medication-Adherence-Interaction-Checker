@@ -1,0 +1,30 @@
+med-adherence/
+│
+├── app.py                # main Flask + scheduler + core logic
+├── meds.json             # user’s meds & schedule (editable by hand or UI later)
+├── utils/
+│   ├── parser.py         # NLP-ish extraction from free text
+│   ├── interactions.py   # FDA API + static fallback for interactions
+│   ├── notifier.py       # email / SMS reminders
+│
+├── static/               # (optional) CSS, JS if you add UI
+├── templates/            # (optional) HTML for Flask frontend
+│   └── index.html
+│
+└── requirements.txt      # pip dependencies
+
+
+
+✅ Mapping Recap
+
+Code (a) meds list → meds.json
+
+Code (b) regex parser → utils/parser.py
+
+Code (c) FDA interaction check → utils/interactions.py
+
+Code (d) clustering (optional) → could go in utils/interactions.py or utils/analysis.py if you want to separate
+
+Code (e) scheduler reminders → app.py + utils/notifier.py
+
+Code (f) email → utils/notifier.py
